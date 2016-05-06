@@ -1,0 +1,224 @@
+********** 2/05/2016 16:59:37 **********
+Inner Exception Type: System.IO.FileNotFoundException
+Inner Exception: Impossible de charger le fichier ou l'assembly 'WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35' ou une de ses dépendances. Le fichier spécifié est introuvable.
+Inner Source: System.Web.Optimization
+Inner Stack Trace: 
+   à System.Web.Optimization.CssMinify.Process(BundleContext context, BundleResponse response)
+   à System.Web.Optimization.Bundle.ApplyTransforms(BundleContext context, String bundleContent, IEnumerable`1 bundleFiles)
+   à System.Web.Optimization.Bundle.GenerateBundleResponse(BundleContext context)
+   à System.Web.Optimization.Bundle.GetBundleResponse(BundleContext context)
+   à System.Web.Optimization.BundleResolver.GetBundleContents(String virtualPath)
+   à System.Web.Optimization.AssetManager.EliminateDuplicatesAndResolveUrls(IEnumerable`1 refs)
+   à System.Web.Optimization.AssetManager.DeterminePathsToRender(IEnumerable`1 assets)
+   à System.Web.Optimization.AssetManager.RenderExplicit(String tagFormat, String[] paths)
+   à System.Web.Optimization.Styles.RenderFormat(String tagFormat, String[] paths)
+   à System.Web.Optimization.Styles.Render(String[] paths)
+   à Microsoft.AspNet.Web.Optimization.WebForms.BundleReference.RenderControl(HtmlTextWriter writer)
+   à System.Web.UI.Control.RenderChildrenInternal(HtmlTextWriter writer, ICollection children)
+   à System.Web.UI.HtmlControls.HtmlHead.RenderChildren(HtmlTextWriter writer)
+   à System.Web.UI.HtmlControls.HtmlContainerControl.Render(HtmlTextWriter writer)
+   à System.Web.UI.Control.RenderControlInternal(HtmlTextWriter writer, ControlAdapter adapter)
+   à System.Web.UI.Control.RenderChildrenInternal(HtmlTextWriter writer, ICollection children)
+   à System.Web.UI.Control.RenderControlInternal(HtmlTextWriter writer, ControlAdapter adapter)
+   à System.Web.UI.Control.RenderChildrenInternal(HtmlTextWriter writer, ICollection children)
+   à System.Web.UI.Page.Render(HtmlTextWriter writer)
+   à System.Web.UI.Control.RenderControlInternal(HtmlTextWriter writer, ControlAdapter adapter)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Une exception de type 'System.Web.HttpUnhandledException' a été levée.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   à System.Web.UI.Page.HandleError(Exception e)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   à System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   à System.Web.UI.Page.ProcessRequest()
+   à System.Web.UI.Page.ProcessRequest(HttpContext context)
+   à ASP.default_aspx.ProcessRequest(HttpContext context)
+   à System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   à System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 2/05/2016 17:00:57 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:39:29 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:40:31 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:42:54 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:43:11 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:43:29 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:47:10 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:47:29 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:47:53 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:48:43 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:48:54 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 17:49:29 **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2/05/2016 18:00:23 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Valeur null pour le paramètre 'categoryId' de type n'acceptant la valeur null 'System.Int32' pour la  méthode 'System.Collections.Generic.List`1[WingtipToysForFireBird3.Data.Business.products] GetProducts(Int32, System.String)' dans 'WingtipToysForFireBird3.ProductList'. Un paramètre facultatif doit être un type de référence ou un type acceptant la valeur null.
+Inner Source: System.Web
+Inner Stack Trace: 
+   à System.Web.UI.WebControls.ModelDataSourceView.ValidateParameterValue(ParameterInfo parameterInfo, Object value, MethodInfo methodInfo)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateMethodParameters(DataSourceOperation dataSourceOperation, ModelDataSourceMethod modelDataSourceMethod, IDictionary controlValues, Boolean isPageLoadComplete)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateMethodParameters(DataSourceOperation dataSourceOperation, ModelDataSourceMethod modelDataSourceMethod, IDictionary controlValues)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateSelectMethodParameters(DataSourceSelectArguments arguments, ModelDataSourceMethod method, Boolean isAsyncSelect, DataSourceSelectResultProcessingOptions& selectResultProcessingOptions)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateSelectMethodParameters(DataSourceSelectArguments arguments, DataSourceSelectResultProcessingOptions& selectResultProcessingOptions)
+   à System.Web.UI.WebControls.ModelDataSourceView.GetSelectMethodResult(DataSourceSelectArguments arguments)
+   à System.Web.UI.WebControls.ModelDataSourceView.ExecuteSelect(DataSourceSelectArguments arguments)
+   à System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   à System.Web.UI.WebControls.ModelDataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   à System.Web.UI.WebControls.ListView.PerformSelect()
+   à System.Web.UI.WebControls.BaseDataBoundControl.EnsureDataBound()
+   à System.Web.UI.WebControls.ListView.CreateChildControls()
+   à System.Web.UI.Control.EnsureChildControls()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Une exception de type 'System.Web.HttpUnhandledException' a été levée.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   à System.Web.UI.Page.HandleError(Exception e)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   à System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   à System.Web.UI.Page.ProcessRequest()
+   à System.Web.UI.Page.ProcessRequest(HttpContext context)
+   à ASP.productlist_aspx.ProcessRequest(HttpContext context)
+   à System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   à System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 2/05/2016 18:03:20 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Valeur null pour le paramètre 'categoryId' de type n'acceptant la valeur null 'System.Int32' pour la  méthode 'System.Collections.Generic.List`1[WingtipToysForFireBird3.Data.Business.products] GetProducts(Int32, System.String)' dans 'WingtipToysForFireBird3.ProductList'. Un paramètre facultatif doit être un type de référence ou un type acceptant la valeur null.
+Inner Source: System.Web
+Inner Stack Trace: 
+   à System.Web.UI.WebControls.ModelDataSourceView.ValidateParameterValue(ParameterInfo parameterInfo, Object value, MethodInfo methodInfo)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateMethodParameters(DataSourceOperation dataSourceOperation, ModelDataSourceMethod modelDataSourceMethod, IDictionary controlValues, Boolean isPageLoadComplete)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateMethodParameters(DataSourceOperation dataSourceOperation, ModelDataSourceMethod modelDataSourceMethod, IDictionary controlValues)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateSelectMethodParameters(DataSourceSelectArguments arguments, ModelDataSourceMethod method, Boolean isAsyncSelect, DataSourceSelectResultProcessingOptions& selectResultProcessingOptions)
+   à System.Web.UI.WebControls.ModelDataSourceView.EvaluateSelectMethodParameters(DataSourceSelectArguments arguments, DataSourceSelectResultProcessingOptions& selectResultProcessingOptions)
+   à System.Web.UI.WebControls.ModelDataSourceView.GetSelectMethodResult(DataSourceSelectArguments arguments)
+   à System.Web.UI.WebControls.ModelDataSourceView.ExecuteSelect(DataSourceSelectArguments arguments)
+   à System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   à System.Web.UI.WebControls.ModelDataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   à System.Web.UI.WebControls.ListView.PerformSelect()
+   à System.Web.UI.WebControls.BaseDataBoundControl.EnsureDataBound()
+   à System.Web.UI.WebControls.ListView.CreateChildControls()
+   à System.Web.UI.Control.EnsureChildControls()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Control.PreRenderRecursiveInternal()
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Une exception de type 'System.Web.HttpUnhandledException' a été levée.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   à System.Web.UI.Page.HandleError(Exception e)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   à System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   à System.Web.UI.Page.ProcessRequest()
+   à System.Web.UI.Page.ProcessRequest(HttpContext context)
+   à ASP.productlist_aspx.ProcessRequest(HttpContext context)
+   à System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   à System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 3/05/2016 18:50:04 **********
+Exception Type: System.InvalidOperationException
+Exception: 'MsAjaxBundle' n'est pas un nom de script valide. Le nom doit se terminer par '.js'.
+Source: Page_Error - Default.aspx
+Stack Trace: 
+   à System.Web.UI.ScriptReference.GetDebugName(String releaseName)
+   à System.Web.UI.ScriptReference.ShouldUseDebugScript(String releaseName, Assembly assembly, Boolean isDebuggingEnabled, Assembly currentAjaxAssembly)
+   à System.Web.UI.ScriptReference.DetermineResourceNameAndAssembly(ScriptManager scriptManager, Boolean isDebuggingEnabled, String& resourceName, Assembly& assembly)
+   à System.Web.UI.ScriptReference.GetUrlFromName(ScriptManager scriptManager, IControl scriptManagerControl, Boolean zip, Boolean useCdnPath)
+   à System.Web.UI.ScriptReference.GetUrlInternal(ScriptManager scriptManager, Boolean zip, Boolean useCdnPath)
+   à System.Web.UI.ScriptReference.GetUrl(ScriptManager scriptManager, Boolean zip)
+   à System.Web.UI.ScriptManager.RegisterUniqueScripts(List`1 uniqueScripts)
+   à System.Web.UI.ScriptManager.RegisterScripts()
+   à System.Web.UI.ScriptManager.OnPagePreRenderComplete(Object sender, EventArgs e)
+   à System.Web.UI.Page.OnPreRenderComplete(EventArgs e)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+********** 3/05/2016 19:11:42 **********
+Exception Type: System.InvalidOperationException
+Exception: 'MsAjaxBundle' n'est pas un nom de script valide. Le nom doit se terminer par '.js'.
+Source: Page_Error - Default.aspx
+Stack Trace: 
+   à System.Web.UI.ScriptReference.GetDebugName(String releaseName)
+   à System.Web.UI.ScriptReference.ShouldUseDebugScript(String releaseName, Assembly assembly, Boolean isDebuggingEnabled, Assembly currentAjaxAssembly)
+   à System.Web.UI.ScriptReference.DetermineResourceNameAndAssembly(ScriptManager scriptManager, Boolean isDebuggingEnabled, String& resourceName, Assembly& assembly)
+   à System.Web.UI.ScriptReference.GetUrlFromName(ScriptManager scriptManager, IControl scriptManagerControl, Boolean zip, Boolean useCdnPath)
+   à System.Web.UI.ScriptReference.GetUrlInternal(ScriptManager scriptManager, Boolean zip, Boolean useCdnPath)
+   à System.Web.UI.ScriptReference.GetUrl(ScriptManager scriptManager, Boolean zip)
+   à System.Web.UI.ScriptManager.RegisterUniqueScripts(List`1 uniqueScripts)
+   à System.Web.UI.ScriptManager.RegisterScripts()
+   à System.Web.UI.ScriptManager.OnPagePreRenderComplete(Object sender, EventArgs e)
+   à System.Web.UI.Page.OnPreRenderComplete(EventArgs e)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+********** 3/05/2016 19:13:15 **********
+Exception Type: System.InvalidOperationException
+Exception: 'MsAjaxBundle' n'est pas un nom de script valide. Le nom doit se terminer par '.js'.
+Source: Page_Error - Default.aspx
+Stack Trace: 
+   à System.Web.UI.ScriptReference.GetDebugName(String releaseName)
+   à System.Web.UI.ScriptReference.ShouldUseDebugScript(String releaseName, Assembly assembly, Boolean isDebuggingEnabled, Assembly currentAjaxAssembly)
+   à System.Web.UI.ScriptReference.DetermineResourceNameAndAssembly(ScriptManager scriptManager, Boolean isDebuggingEnabled, String& resourceName, Assembly& assembly)
+   à System.Web.UI.ScriptReference.GetUrlFromName(ScriptManager scriptManager, IControl scriptManagerControl, Boolean zip, Boolean useCdnPath)
+   à System.Web.UI.ScriptReference.GetUrlInternal(ScriptManager scriptManager, Boolean zip, Boolean useCdnPath)
+   à System.Web.UI.ScriptReference.GetUrl(ScriptManager scriptManager, Boolean zip)
+   à System.Web.UI.ScriptManager.RegisterUniqueScripts(List`1 uniqueScripts)
+   à System.Web.UI.ScriptManager.RegisterScripts()
+   à System.Web.UI.ScriptManager.OnPagePreRenderComplete(Object sender, EventArgs e)
+   à System.Web.UI.Page.OnPreRenderComplete(EventArgs e)
+   à System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
