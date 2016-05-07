@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>  <%: Page.Title %> - Wingtip Toys</title>
+    <title>  <%: Page.Title %> - Wingtip Toys for Firebird 3</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/WebFormsJs") %>
@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Wingtip Toys</a>
+                    <a class="navbar-brand" runat="server" href="~/">Wingtip Toys for Firebird 3</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

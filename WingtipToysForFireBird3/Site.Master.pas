@@ -7,6 +7,7 @@ uses
   System.Collections.Generic,
   System.Security.Claims,
   System.Security.Principal,
+  System.Text.RegularExpressions,
   System.Web,
   System.Web.Security,
   System.Web.UI,
@@ -22,11 +23,15 @@ type
     method Page_Init(sender: Object; e: EventArgs);
     method master_Page_PreLoad(sender: Object; e: EventArgs);
     method Unnamed_LoggingOut(sender: Object; e: LoginCancelEventArgs);
-    method Page_PreRender(sender: Object; e: EventArgs);
+    method Page_PreRender(sender: Object; e: EventArgs);    
+    method Render(writer: HtmlTextWriter);override;
    private
     var _antiXsrfTokenValue: String;
     class const AntiXsrfTokenKey: String = '__AntiXsrfToken';
     class const AntiXsrfUserNameKey: String = '__AntiXsrfUserName';
+    class var Pattern: Regex := new Regex('^\s+', RegexOptions.Multiline or RegexOptions.Compiled); readonly;
+    class var REGEX_BETWEEN_TAGS: Regex := new Regex('>\s+<', RegexOptions.Compiled);
+    class var REGEX_LINE_BREAKS: Regex := new Regex('\n\s+', RegexOptions.Compiled);
   public
     property html : System.Web.UI.HtmlControls.HtmlElement read htmlControl write htmlControl;
  
@@ -35,6 +40,8 @@ type
 implementation
 
 uses 
+  System.IO,
+  System.Text,
   WingtipToysForFireBird3.Components,
   WingtipToysForFireBird3.Helper;
 
@@ -103,6 +110,27 @@ begin
     var cartStr: String := String.Format('Cart ({0})', usersShoppingCart.GetCount());
     cartCount.InnerText := cartStr;
   end;
+end;
+
+method Site.Render(writer: HtmlTextWriter);
+begin
+  var sb: StringBuilder := new StringBuilder();
+  var sw: StringWriter := new StringWriter(sb);
+  var ht: HtmlTextWriter := new HtmlTextWriter(sw);
+  inherited Render(ht);
+  var html: String := sb.ToString();    
+  html := html.Replace('<title>'#13#10#9,'<title>').Replace(#13#10'</title>','</title>');
+  html := REGEX_BETWEEN_TAGS.Replace(html, '><');
+  html := REGEX_LINE_BREAKS.Replace(html, String.Empty);
+  //The remove the value and it id from the view status this next line
+  // html := Regex.Replace(html, '<input[^>]*id="(__VIEWSTATE)"[^>]*>', '<input type="hidden" name="__VIEWSTATE" value=""/>', RegexOptions.IgnoreCase);
+  //To completely remove the view state use the line below
+  // html = Regex.Replace(html, "<input[^>]*id=\"(__VIEWSTATE)\"[^>]*>", "", RegexOptions.IgnoreCase);
+  writer.Write(html);
+  sb := nil;
+  html := nil;
+  ht.Dispose();
+  sw.Dispose()
 end;
 
 end.
