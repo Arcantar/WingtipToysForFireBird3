@@ -90,38 +90,28 @@ begin
 end;
 begin
  
- var cachekey: System.String := 'IPV4_' + IPV4;
- var expiration: DateTime := DateTime.Now.AddDays(1);
-
- var iploc : IPLocation := new IPLocation;
- iploc := CacheManager.Cache.Get<IPLocation>(cachekey, expiration, () -> begin
     var rd : IDataReader ;
     var a:= Async begin               
       rd := WingtipToysForFireBird3.Data.DBIPLocation.GetOne(ConvertToLong(IPV4));
     end; a;
-    var ipl : IPLocation := new IPLocation;
+   
     if rd.Read() then begin
-      ipl._ipfrom            := Convert.ToInt64(rd['ip_from'].ToString);
-      ipl._ipto              := Convert.ToInt64(rd['ip_to'].ToString);
-      ipl._country_code      := rd['country_code'].ToString;
-      ipl._country_name      := rd['country_name'].ToString;
-      ipl._continent_code    := rd['continent_code'].ToString;
-      ipl._continent_name    := rd['continent_name'].ToString;
-      ipl._time_zone         := rd['time_zone'].ToString;
-      ipl._region_code       := rd['region_code'].ToString;
-      ipl._region_name       := rd['region_name'].ToString;
-      ipl._owner             := rd['owner'].ToString;
-      ipl._city_name         := rd['city_name'].ToString;
-      ipl._country_name      := rd['country_name'].ToString;
-      ipl._latitude          := Convert.ToDecimal(rd['latitude'].ToString); 
-      ipl._longitude         := Convert.ToDecimal(rd['longitude'].ToString);
+      _ipfrom            := Convert.ToInt64(rd['ip_from'].ToString);
+      _ipto              := Convert.ToInt64(rd['ip_to'].ToString);
+      _country_code      := rd['country_code'].ToString;
+      _country_name      := rd['country_name'].ToString;
+      _continent_code    := rd['continent_code'].ToString;
+      _continent_name    := rd['continent_name'].ToString;
+      _time_zone         := rd['time_zone'].ToString;
+      _region_code       := rd['region_code'].ToString;
+      _region_name       := rd['region_name'].ToString;
+      _owner             := rd['owner'].ToString;
+      _city_name         := rd['city_name'].ToString;
+      _country_name      := rd['country_name'].ToString;
+      _latitude          := Convert.ToDecimal(rd['latitude'].ToString); 
+      _longitude         := Convert.ToDecimal(rd['longitude'].ToString);
     end;    
-    exit ipl;
-  end,true);
-self := iploc;
-self.ipfrom := iploc.ipfrom;
-if self._ipfrom = 0 then
- CacheManager.Cache.InvalidateCacheItem(cachekey) ;
+
 end;
 
 end.

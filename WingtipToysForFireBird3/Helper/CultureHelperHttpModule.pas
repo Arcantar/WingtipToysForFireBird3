@@ -8,7 +8,11 @@ uses
   System.Globalization,
   System.Threading,
   System.Web,
-  System.Web.Security;
+  System.Web.Security,  
+  System.Net.NetworkInformation,
+  WingtipToysForFireBird3, 
+  WingtipToysForFireBird3.Components, 
+  WingtipToysForFireBird3.Helper.Cache;
 
 type
   CultureHelperHttpModule = public class(IHttpModule)
@@ -40,10 +44,6 @@ type
 
 
 implementation
-
-uses 
-  WingtipToysForFireBird3, 
-  WingtipToysForFireBird3.Components;
 
 
 method CultureHelperHttpModule.Init(application: HttpApplication);
@@ -131,9 +131,6 @@ begin
   
   var app: HttpApplication := HttpApplication(sender);
   var NP_IPADRESSV4: System.String      := app.Request.UserHostAddress; 
-
-  if NP_IPADRESSV4.Trim = '213.136.65.202' then exit;  // 21 04 2016 dû à la moulinette local pour maintenir le systeme vivant :-(
-
   var NP_DATETIME: DateTime             := DateTime.Now; 
   var NP_METHODE: System.String         := app.Request.HttpMethod;  
   var NP_CULTURE: System.String         := CultureInfo.CurrentCulture.Name;  
@@ -147,8 +144,13 @@ begin
   if app.Request.UrlReferrer <> nil then
      NP_REFFERT  := app.Request.UrlReferrer.ToString else
      NP_REFFERT  := '';
-  var ipUser : IPLocation := new IPLocation(NP_IPADRESSV4);
-  //ipUser := IPLocation.GetLocation2(NP_IPADRESSV4) ;
+  var cachekey: System.String := 'IPV4_' + NP_IPADRESSV4;
+  var expiration: DateTime := DateTime.Now.AddDays(1);
+  var ipUser : IPLocation := CacheManager.Cache.Get<IPLocation>(cachekey, expiration, () -> begin
+               var fipl := new IPLocation(NP_IPADRESSV4);
+               exit fipl;
+               end,true);
+               
   var NP_RESPONSETIME: System.Int32 := System.Environment.TickCount - starttickcount;
 
   WingtipToysForFireBird3.Data.DBSystemLog.NP_LOG_I(NP_DATETIME, NP_METHODE, NP_CULTURE,NP_IPADRESSV4 ,NP_URL, NP_USERNAME ,NP_USERAGENT ,NP_RESPONSECODE ,NP_SITENAME ,NP_APPLICATIONNAME ,NP_REFFERT, NP_RESPONSETIME, session_id, ipUser.ipfrom ,ipUser.ipto ,ipUser.country_code ,ipUser.country_name ,ipUser.continent_code ,ipUser.continent_name ,ipUser.time_zone ,ipUser.region_code ,ipUser.region_name ,ipUser.owner ,ipUser.city_name , ipUser.county_name ,ipUser.latitude ,ipUser.longitude );
