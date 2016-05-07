@@ -248,6 +248,7 @@
     <Compile Include="Helper\CultureHelperHttpModule.pas" />
     <Compile Include="Helper\PersianDateHelper.pas" />
     <Compile Include="Helper\StringHelper.pas" />
+    <Compile Include="Helper\WebUtilsHelper.pas" />
     <Compile Include="ProductDetails.aspx.designer.pas">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ProductDetails.aspx</DependentUpon>
@@ -850,11 +851,11 @@
       <Private>True</Private>
       <HintPath>..\..\AspNet.Identity.Firebird3\AspNet.Identity.Firebird3\bin\Debug\AspNet.Identity.Firebird3.dll</HintPath>
     </ProjectReference>
-    <ProjectReference Include="..\..\WingtipToysForFireBird3\WingtipToysForFireBird3.Data\WingtipToysForFireBird3.Data.oxygene">
+    <ProjectReference Include="..\WingtipToysForFireBird3.Data\WingtipToysForFireBird3.Data.oxygene">
       <Name>WingtipToysForFireBird3.Data</Name>
       <Project>{fd3b582c-a682-40af-99e1-447c9a2b9452}</Project>
       <Private>True</Private>
-      <HintPath>..\..\WingtipToysForFireBird3\WingtipToysForFireBird3.Data\bin\Debug\WingtipToysForFireBird3.Data.dll</HintPath>
+      <HintPath>..\WingtipToysForFireBird3.Data\bin\Release\WingtipToysForFireBird3.Data.dll</HintPath>
     </ProjectReference>
   </ItemGroup>
   <ProjectExtensions>

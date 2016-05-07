@@ -54,6 +54,41 @@ type
                                          
     class property GoogleclientSecret    : System.String  read ConfigHelper.GetStringProperty('GoogleclientSecret',String.Empty);
 
+    class property PayPalpEndPointURL          : System.String  read ConfigHelper.GetStringProperty('PayPalpEndPointURL','');
+
+    class property PayPalhost                  : System.String  read ConfigHelper.GetStringProperty('PayPalhost','');
+    
+    class property PayPalpEndPointURL_SB       : System.String  read ConfigHelper.GetStringProperty('PayPalpEndPointURL_SB','');
+    
+    class property PayPalhost_SB               : System.String  read ConfigHelper.GetStringProperty('PayPalhost_SB','');
+    
+    class property PayPalAPIUsername           : System.String  read ConfigHelper.GetStringProperty('PayPalAPIUsername','');
+    
+    class property PayPalAPIPassword           : System.String  read ConfigHelper.GetStringProperty('PayPalAPIPassword','');
+    
+    class property PayPalAPISignature          : System.String  read ConfigHelper.GetStringProperty('PayPalAPISignature','');
+    
+    class property PayPalAPIUsername_SB        : System.String  read ConfigHelper.GetStringProperty('PayPalAPIUsername_SB','');
+    
+    class property PayPalAPIPassword_SB        : System.String  read ConfigHelper.GetStringProperty('PayPalAPIPassword_SB','');
+    
+    class property PayPalAPISignature_SB       : System.String  read ConfigHelper.GetStringProperty('PayPalAPISignature_SB','');
+    
+    class property PayPalbSandbox              : System.Boolean read ConfigHelper.GetBoolProperty('PayPalbSandbox',true);
+    
+    class property PayPalCheckoutReviewURL     : System.String  read ConfigHelper.GetStringProperty('PayPalCheckoutReviewURL','');
+    
+    class property PayPalCheckoutCancelURL     : System.String  read ConfigHelper.GetStringProperty('PayPalCheckoutCancelURL','');
+    
+    class property PayPalCheckoutReviewURL_SB  : System.String  read ConfigHelper.GetStringProperty('PayPalCheckoutReviewURL_SB','');
+    
+    class property PayPalCheckoutCancelURL_SB  : System.String  read ConfigHelper.GetStringProperty('PayPalCheckoutCancelURL_SB','');
+
+    class property PayPalBrandName             : System.String  read ConfigHelper.GetStringProperty('PayPalBrandName','');
+
+    class property PayPalCurrency              : System.String  read ConfigHelper.GetStringProperty('PayPalCurrency','');
+
+
 
   end;
 

@@ -31,18 +31,19 @@ type
 type
   NVPAPICaller = public class
   private
-    var pEndPointURL: String := 'https://api-3t.paypal.com/nvp';
-    var host: String := 'www.paypal.com';
-    var pEndPointURL_SB: String := 'https://api-3t.sandbox.paypal.com/nvp';
-    var host_SB: String := 'www.sandbox.paypal.com';
+    var pEndPointURL: String := WebConfigSettings.PayPalpEndPointURL;
+    var host: String := WebConfigSettings.PayPalhost;
+    var pEndPointURL_SB: String := WebConfigSettings.PayPalpEndPointURL_SB;
+    var host_SB: String := WebConfigSettings.PayPalhost_SB;
   public
-    var APIUsername: String := 'sales_api1.tetrasys.eu';
+    var APIUsername: String := iif(WebConfigSettings.PayPalbSandbox,WebConfigSettings.PayPalAPIUsername_SB,WebConfigSettings.PayPalAPIUsername);
   private
-    var APIPassword: String := '1392915822';
-    var APISignature: String := 'AW.DZwz8Jbj4HW4JJBASAX2Kngc.Az2F3lsNcVQibWNrAJh6n8IbqbqL';
+    var APIPassword: String := iif(WebConfigSettings.PayPalbSandbox,WebConfigSettings.PayPalAPIPassword_SB,WebConfigSettings.PayPalAPIPassword);
+    var APISignature: String := iif(WebConfigSettings.PayPalbSandbox,WebConfigSettings.PayPalAPISignature_SB,WebConfigSettings.PayPalAPISignature);
     var Subject: String := '';
     var BNCode: String := 'PP-ECWizard';
-    class const bSandbox: Boolean = true;
+    
+    class var bSandbox : Boolean  := WebConfigSettings.PayPalbSandbox;readonly;
     //  Live strings.
     class const CVV2: String = 'CVV2';
     class const SIGNATURE: String = 'SIGNATURE';
@@ -77,15 +78,17 @@ type
   public
     method Encode: String;
     method Decode(nvpstring: String);
-    method &Add(name: String; value: String; index: Integer);
-    method &Remove(arrayName: String; index: Integer);
-   // property Item: String read GetArrayName() write GetArrayName();
+    method Add(name: String; value: String; index: Integer);
+    method Remove(arrayName: String; index: Integer);
   
   end;
 
 
 
 implementation
+
+uses 
+  WingtipToysForFireBird3.Helper;
 
 
 method NVPAPICaller.SetCredentials(Userid: String; Pwd: String; Signature: String);
@@ -101,17 +104,17 @@ begin
     pEndPointURL := pEndPointURL_SB;
     host := host_SB;
   end;
-  var returnURL: String := 'https://dev-local.tetrasys.eu/Checkout/CheckoutReview.aspx';
-  var cancelURL: String := 'https://dev-local.tetrasys.eu/Checkout/CheckoutCancel.aspx';
+  var returnURL: String := iif(WebConfigSettings.PayPalbSandbox,WebConfigSettings.PayPalCheckoutReviewURL_SB,WebConfigSettings.PayPalCheckoutReviewURL);
+  var cancelURL: String := iif(WebConfigSettings.PayPalbSandbox,WebConfigSettings.PayPalCheckoutCancelURL_SB,WebConfigSettings.PayPalCheckoutCancelURL);
   var encoder: NVPCodec := new NVPCodec();
   encoder['METHOD'] := 'SetExpressCheckout';
   encoder['RETURNURL'] := returnURL;
   encoder['CANCELURL'] := cancelURL;
-  encoder['BRANDNAME'] := 'Wingtip Toys Sample Application';
+  encoder['BRANDNAME'] := WebConfigSettings.PayPalBrandName;
   encoder['PAYMENTREQUEST_0_AMT'] := amt.Replace(',','.');
   encoder['PAYMENTREQUEST_0_ITEMAMT'] := amt.Replace(',','.');
   encoder['PAYMENTREQUEST_0_PAYMENTACTION'] := 'Sale';
-  encoder['PAYMENTREQUEST_0_CURRENCYCODE'] := 'EUR';
+  encoder['PAYMENTREQUEST_0_CURRENCYCODE'] := WebConfigSettings.PayPalCurrency;
   //  Get the Shopping Cart Products
   using myCartOrders: ShoppingCartActions := new ShoppingCartActions() do
   begin
@@ -201,7 +204,7 @@ begin
   try
     using myWriter: StreamWriter := new StreamWriter(objRequest.GetRequestStream()) do
     begin
-      myWriter.&Write(strPost);
+      myWriter.Write(strPost);
     end;
   except
     on e: Exception do
@@ -212,12 +215,12 @@ begin
   end;
   //  Retrieve the Response returned from the NVP API call to PayPal.
   var objResponse: HttpWebResponse := HttpWebResponse(objRequest.GetResponse());
-  var &result: String;
+  var fresult: String;
   using sr: StreamReader := new StreamReader(objResponse.GetResponseStream()) do
   begin
-    &result := sr.ReadToEnd();
+    fresult := sr.ReadToEnd();
   end;
-  exit &result;
+  exit fresult;
 end;
 
 method NVPAPICaller.buildCredentialsNVPString: String;
@@ -265,27 +268,27 @@ begin
     if tokens.Length >= 2 then begin
       var name: String := HttpUtility.UrlDecode(tokens[0]);
       var value: String := HttpUtility.UrlDecode(tokens[1]);
-      &Add(name, value);
+      self.Add(name, value);
     end;
   end;
 end;
 
-method NVPCodec.Add(name: String; value: String; &index: Integer);
+method NVPCodec.Add(name: String; value: String; index: Integer);
 begin
-  self.&Add(GetArrayName(&index, name), value);
+  self.Add(GetArrayName(index, name), value);
 end;
 
-method NVPCodec.Remove(arrayName: String; &index: Integer);
+method NVPCodec.Remove(arrayName: String; index: Integer);
 begin
-  self.&Remove(GetArrayName(&index, arrayName));
+  self.Remove(GetArrayName(index, arrayName));
 end;
 
-method NVPCodec.GetArrayName(&index: Integer; name: String): String;
+method NVPCodec.GetArrayName(index: Integer; name: String): String;
 begin
-  if &index < 0 then begin
-    raise new ArgumentOutOfRangeException('index', 'index cannot be negative : ' + &index);
+  if index < 0 then begin
+    raise new ArgumentOutOfRangeException('index', 'index cannot be negative : ' + index);
   end;
-  exit name + &index;
+  exit name + index;
 end;
 
 end.
