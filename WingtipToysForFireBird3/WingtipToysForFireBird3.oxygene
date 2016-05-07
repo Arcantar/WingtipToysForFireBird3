@@ -248,6 +248,7 @@
     <Compile Include="Helper\CultureHelperHttpModule.pas" />
     <Compile Include="Helper\PersianDateHelper.pas" />
     <Compile Include="Helper\StringHelper.pas" />
+    <Compile Include="Helper\WebUtilsHelper.pas" />
     <Compile Include="ProductDetails.aspx.designer.pas">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ProductDetails.aspx</DependentUpon>
