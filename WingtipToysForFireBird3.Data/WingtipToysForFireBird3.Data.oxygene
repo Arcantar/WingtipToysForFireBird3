@@ -102,11 +102,11 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NETProvider_4.7.0.0\src\FirebirdSql.Data.FirebirdClient\FirebirdSql.Data.FirebirdClient.csproj">
+    <ProjectReference Include="..\..\AspNet.Identity.Firebird3\NETProvider_4.7.0.0\src\FirebirdSql.Data.FirebirdClient\FirebirdSql.Data.FirebirdClient.csproj">
       <Name>FirebirdSql.Data.FirebirdClient</Name>
       <Project>{326a24f9-6259-45db-835c-18db80728460}</Project>
       <Private>True</Private>
-      <HintPath>..\NETProvider_4.7.0.0\src\FirebirdSql.Data.FirebirdClient\bin\Debug\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+      <HintPath>..\..\AspNet.Identity.Firebird3\NETProvider_4.7.0.0\src\FirebirdSql.Data.FirebirdClient\bin\Release_Mono_w_Linux\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Oxygene\RemObjects.Oxygene.Echoes.targets" />
