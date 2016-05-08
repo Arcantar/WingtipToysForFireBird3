@@ -90,8 +90,8 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Wingtip Toys</p>
+            <footer class="center">
+                <p>&copy; <%: DateTime.Now.Year %> - Wingtip Toys for Firebird 3</p>
             </footer>
         </div>
     </form>
