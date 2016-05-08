@@ -20,6 +20,7 @@ implementation
 
 method About.Page_Load(sender: Object; e: EventArgs);
 begin
+
 end;
 
 end.

@@ -664,6 +664,9 @@
     <Content Include="ErrorPage.aspx">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="favicon.ico">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.eot">
       <SubType>Content</SubType>
     </Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="Oxygene"  MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Default.aspx.pas" Inherits="WingtipToysForFireBird3._Default" %>
+﻿<%@ Page Title="Home" Language="Oxygene"  MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Default.aspx.pas" Inherits="WingtipToysForFireBird3._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <h1><%: Title %>.</h1>
