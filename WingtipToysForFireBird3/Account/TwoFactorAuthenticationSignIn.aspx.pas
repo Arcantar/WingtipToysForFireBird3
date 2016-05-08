@@ -55,7 +55,7 @@ begin
     Response.Redirect('/Account/Error', true);
   end;
   var userFactors := manager.GetValidTwoFactorProviders(userId);
-  Providers.DataSource := userFactors.&Select(x -> x).ToList();
+  Providers.DataSource := userFactors.Select(x -> x).ToList();
   Providers.DataBind();
 end;
 
@@ -63,8 +63,8 @@ method TwoFactorAuthenticationSignIn.CodeSubmit_Click(sender: Object; e: EventAr
 begin
   var rememberMe: Boolean := false;
   Boolean.TryParse(Request.QueryString['RememberMe'], out rememberMe);
-  var &result := signinManager.TwoFactorSignIn(SelectedProvider.Value, Code.Text, rememberMe,  RememberBrowser.Checked);
-  case &result of
+  var fresult := signinManager.TwoFactorSignIn(SelectedProvider.Value, Code.Text, rememberMe,  RememberBrowser.Checked);
+  case fresult of
     SignInStatus.Success: begin
       IdentityHelper.RedirectToReturnUrl(Request.QueryString['ReturnUrl'], Response);
     end;
