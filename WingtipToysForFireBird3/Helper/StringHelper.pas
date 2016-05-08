@@ -273,7 +273,7 @@ begin
     while i < len do begin 
         c := s[i];
 
-        var tmpC : Integer := System.Int32(c);
+        //var tmpC : Integer := System.Int32(c);
 
         if c = #160 then c:=' ';
       
